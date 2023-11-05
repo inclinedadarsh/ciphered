@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import Algorithm from "./Algorithm";
 
+import { Algorithms } from "@/types";
+
 const Main = () => {
-  const [algorithm, setAlgorithm] = useState("");
+  const [algorithm, setAlgorithm] = useState<Algorithms>("");
 
   useEffect(() => {
     console.log(algorithm);

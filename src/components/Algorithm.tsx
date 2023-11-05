@@ -1,5 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
-
 import {
   Select,
   SelectContent,
@@ -10,14 +8,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-interface AlgorithmProps {
-  value: string;
-  setValue: Dispatch<SetStateAction<string>>;
-}
+import { AlgorithmProps, Algorithms } from "@/types";
 
 const Algorithm = ({ value, setValue }: AlgorithmProps) => {
+  const handleAlgorithmChange = (value: Algorithms) => {
+    setValue(value);
+  };
   return (
-    <Select value={value} onValueChange={setValue}>
+    <Select value={value} onValueChange={handleAlgorithmChange}>
       <SelectTrigger className="w-full">
         <SelectValue placeholder="Select an algorithm" />
       </SelectTrigger>
