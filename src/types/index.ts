@@ -16,3 +16,8 @@ export interface KeyProps {
   value: string | number;
   setValue: Dispatch<SetStateAction<string | number>>;
 }
+
+export interface TextProps {
+  value: string;
+  setValue: Dispatch<SetStateAction<string>>;
+}
