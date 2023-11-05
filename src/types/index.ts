@@ -1,15 +1,15 @@
 import { Dispatch, SetStateAction } from "react";
 
-export type Algorithms = "caesarCipher" | "";
+export type AlgorithmType = "caesarCipher" | "";
 
 // * For future use
-export type KeyType<T extends Algorithms> = T extends "caesarCipher"
+export type KeyType<T extends AlgorithmType> = T extends "caesarCipher"
   ? number
   : never;
 
 export interface AlgorithmProps {
-  value: Algorithms;
-  setValue: Dispatch<SetStateAction<Algorithms>>;
+  value: AlgorithmType;
+  setValue: Dispatch<SetStateAction<AlgorithmType>>;
 }
 
 export interface KeyProps {

@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Algorithm from "./Algorithm";
 import Key from "./Key";
 
-import { Algorithms } from "@/types";
+import { AlgorithmType } from "@/types";
 
 const Main = () => {
-  const [algorithm, setAlgorithm] = useState<Algorithms>("");
+  const [algorithm, setAlgorithm] = useState<AlgorithmType>("");
   const [key, setKey] = useState<string | number>("");
 
   useEffect(() => {

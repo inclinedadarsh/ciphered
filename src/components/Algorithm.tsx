@@ -8,10 +8,10 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-import { AlgorithmProps, Algorithms } from "@/types";
+import { AlgorithmProps, AlgorithmType } from "@/types";
 
 const Algorithm = ({ value, setValue }: AlgorithmProps) => {
-  const handleAlgorithmChange = (value: Algorithms) => {
+  const handleAlgorithmChange = (value: AlgorithmType) => {
     setValue(value);
   };
   return (
