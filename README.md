@@ -1,5 +1,6 @@
+![image](https://github.com/inclinedadarsh/ciphered/assets/84132532/1f215b62-8a48-4e56-820a-189187034dab)
 
-# /ciphered
+# Ciphered
 
 Live website available here: https://ciphered.vercel.app/ 
 
