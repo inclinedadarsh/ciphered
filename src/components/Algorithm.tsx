@@ -23,6 +23,9 @@ const Algorithm = ({ value, setValue }: AlgorithmProps) => {
         <SelectGroup>
           <SelectLabel>Algorithms</SelectLabel>
           <SelectItem value="caesarCipher">Caesar Cipher</SelectItem>
+          <SelectItem value="simpleSubstitution">
+            Simple Substitution
+          </SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>

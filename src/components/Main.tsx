@@ -8,7 +8,7 @@ import Text from "./Text";
 import { Button } from "./ui/button";
 import { useToast } from "./ui/use-toast";
 
-import { CaesarCipher } from "@/lib/algorithms";
+import { CaesarCipher, SimpleSubstitution } from "@/lib/algorithms";
 
 import { AlgorithmType } from "@/types";
 
@@ -38,6 +38,20 @@ const Main = () => {
         const cipher = new CaesarCipher(shift);
         setCipherText(cipher.encrypt(plainText));
       }
+    } else if (algorithm === "simpleSubstitution") {
+      if (new Set(key as string).size !== 26) {
+        toast({
+          title: "Please enter a valid key",
+          description:
+            "Key should be a string with 26 unique characters for Simple Substitution Cipher",
+          variant: "destructive",
+        });
+
+        return;
+      }
+
+      const cipher = new SimpleSubstitution(key as string);
+      setCipherText(cipher.encrypt(plainText));
     }
   };
 
@@ -59,6 +73,20 @@ const Main = () => {
         const cipher = new CaesarCipher(shift);
         setPlainText(cipher.decrypt(cipherText));
       }
+    } else if (algorithm === "simpleSubstitution") {
+      if (new Set(key as string).size !== 26 || (key as string).length !== 26) {
+        toast({
+          title: "Please enter a valid key",
+          description:
+            "Key should be a string with 26 unique characters for Simple Substitution Cipher",
+          variant: "destructive",
+        });
+
+        return;
+      }
+
+      const cipher = new SimpleSubstitution(key as string);
+      setPlainText(cipher.decrypt(cipherText));
     }
   };
 
