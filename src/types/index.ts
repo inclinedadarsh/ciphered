@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-export type AlgorithmType = "caesarCipher" | "";
+export type AlgorithmType = "caesarCipher" | "simpleSubstitution" | "";
 
 // * For future use
 export type KeyType<T extends AlgorithmType> = T extends "caesarCipher"
