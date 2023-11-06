@@ -9,6 +9,9 @@ Ciphered is a web app that let's you encrypt and decrypt messages using various 
 ## Available algorithms
 
 - Caesar Cipher
+- Simple Substitution
+
+> If you want to add an algorithm, check out the guide on [how to add an algorithm](https://github.com/inclinedadarsh/ciphered/blob/main/CONTRIBUTING.md#steps-to-add-a-new-algorithm)
 
 
 ## Tech Stack
@@ -20,9 +23,9 @@ Ciphered is a web app that let's you encrypt and decrypt messages using various 
 
 ## Contributing
 
-Contributions are always welcome!
+Contributions are always welcome! There are numerous ways you can contribute to the project.
 
-See [`CONTRIBUTING.md`](https://github.com/inclinedadarsh/ciphered/blob/main/CONTRIBUTING.md) for how to get started and basic installation.
+See [`CONTRIBUTING.md`](https://github.com/inclinedadarsh/ciphered/blob/main/CONTRIBUTING.md) for how to get started, basic installation & ways to contribute.
 
 Please adhere to this project's [`CODE_OF_CONDUCT.md`](https://github.com/inclinedadarsh/ciphered/blob/main/CODE_OF_CONDUCT.md).
 
