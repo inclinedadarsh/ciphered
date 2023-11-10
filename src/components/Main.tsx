@@ -14,6 +14,13 @@ import { AlgorithmType } from "@/types";
 
 import { CopyIcon, CheckIcon } from "@radix-ui/react-icons";
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
 const Main = () => {
   const { toast } = useToast();
 
@@ -119,15 +126,24 @@ const Main = () => {
           <div className="">
             <div className="flex justify-between">
               <h2 className="text-lg font-semibold mb-4">Plain Text</h2>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => {
-                  handleCopyChange(plainText, setPlainCopied);
-                }}
-              >
-                {plainCopied ? <CheckIcon /> : <CopyIcon />}
-              </Button>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => {
+                        handleCopyChange(plainText, setPlainCopied);
+                      }}
+                    >
+                      {plainCopied ? <CheckIcon /> : <CopyIcon />}
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Copy plain text</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
             <Text value={plainText} setValue={setPlainText} />
             <Button variant="accent" className="mt-5" onClick={handleEncrypt}>
@@ -137,15 +153,25 @@ const Main = () => {
           <div className="">
             <div className="flex justify-between">
               <h2 className="text-lg font-semibold mb-4">Cipher Text</h2>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => {
-                  handleCopyChange(cipherText, setCipherCopied);
-                }}
-              >
-                {cipherCopied ? <CheckIcon /> : <CopyIcon />}
-              </Button>
+
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button
+                      variant="outline"
+                      size="icon"
+                      onClick={() => {
+                        handleCopyChange(cipherText, setCipherCopied);
+                      }}
+                    >
+                      {cipherCopied ? <CheckIcon /> : <CopyIcon />}
+                    </Button>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Copy cipher text</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </div>
             <Text value={cipherText} setValue={setCipherText} />
             <Button variant="accent" className="mt-5" onClick={handleDecrypt}>
