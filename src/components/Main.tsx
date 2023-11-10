@@ -12,6 +12,8 @@ import { CaesarCipher, SimpleSubstitution } from "@/lib/algorithms";
 
 import { AlgorithmType } from "@/types";
 
+import { CopyIcon } from "@radix-ui/react-icons";
+
 const Main = () => {
   const { toast } = useToast();
 
@@ -105,14 +107,36 @@ const Main = () => {
         </div>
         <div className="grid sm:grid-cols-2 gap-10 mt-12">
           <div className="">
-            <h2 className="text-lg font-semibold mb-4">Plain Text</h2>
+            <div className="flex justify-between">
+              <h2 className="text-lg font-semibold mb-4">Plain Text</h2>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => {
+                  navigator.clipboard.writeText(plainText);
+                }}
+              >
+                <CopyIcon />
+              </Button>
+            </div>
             <Text value={plainText} setValue={setPlainText} />
             <Button variant="accent" className="mt-5" onClick={handleEncrypt}>
               Encrypt
             </Button>
           </div>
           <div className="">
-            <h2 className="text-lg font-semibold mb-4">Cipher Text</h2>
+            <div className="flex justify-between">
+              <h2 className="text-lg font-semibold mb-4">Cipher Text</h2>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => {
+                  navigator.clipboard.writeText(cipherText);
+                }}
+              >
+                <CopyIcon />
+              </Button>
+            </div>
             <Text value={cipherText} setValue={setCipherText} />
             <Button variant="accent" className="mt-5" onClick={handleDecrypt}>
               Decrypt
