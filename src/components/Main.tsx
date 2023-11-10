@@ -12,7 +12,7 @@ import { CaesarCipher, SimpleSubstitution } from "@/lib/algorithms";
 
 import { AlgorithmType } from "@/types";
 
-import { CopyIcon } from "@radix-ui/react-icons";
+import { CopyIcon, CheckIcon } from "@radix-ui/react-icons";
 
 const Main = () => {
   const { toast } = useToast();
@@ -21,6 +21,8 @@ const Main = () => {
   const [key, setKey] = useState<string | number>("");
   const [plainText, setPlainText] = useState("");
   const [cipherText, setCipherText] = useState("");
+  const [plainCopied, setPlainCopied] = useState<boolean>(false);
+  const [cipherCopied, setCipherCopied] = useState<boolean>(false);
 
   const handleEncrypt = () => {
     if (algorithm === "")
@@ -92,6 +94,14 @@ const Main = () => {
     }
   };
 
+  const handleCopyChange = (text: string, setCopied: any) => {
+    setCopied(true);
+    navigator.clipboard.writeText(text);
+    setTimeout(() => {
+      setCopied(false);
+    }, 1500);
+  };
+
   return (
     <main>
       <div className="max-w-md sm:max-w-3xl w-full mx-auto px-4">
@@ -113,10 +123,10 @@ const Main = () => {
                 variant="outline"
                 size="icon"
                 onClick={() => {
-                  navigator.clipboard.writeText(plainText);
+                  handleCopyChange(plainText, setPlainCopied);
                 }}
               >
-                <CopyIcon />
+                {plainCopied ? <CheckIcon /> : <CopyIcon />}
               </Button>
             </div>
             <Text value={plainText} setValue={setPlainText} />
@@ -131,10 +141,10 @@ const Main = () => {
                 variant="outline"
                 size="icon"
                 onClick={() => {
-                  navigator.clipboard.writeText(cipherText);
+                  handleCopyChange(cipherText, setCipherCopied);
                 }}
               >
-                <CopyIcon />
+                {cipherCopied ? <CheckIcon /> : <CopyIcon />}
               </Button>
             </div>
             <Text value={cipherText} setValue={setCipherText} />
